@@ -13,13 +13,11 @@ public class Main {
         System.out.println();
 
         // Example 2
-        Queue queue2 = new Queue(5);
+        Queue queue2 = new Queue(3);
 
         queue2.put(4);
         queue2.put(5);
         queue2.put(6);
-        queue2.put(7);
-        queue2.put(8);
 
         Queue queue3 = new Queue(queue2);
 

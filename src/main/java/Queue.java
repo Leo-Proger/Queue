@@ -26,12 +26,13 @@ public class Queue {
      * @param q this is another queue that needs to be copied
      */
     public Queue(Queue q) {
-        //
         this.size = q.size;
         this.queue = new int[size];
+        this.getLocation = q.getLocation;
+        this.putLocation = q.putLocation;
 
         for (int i = 0; i < q.size; i++) {
-            queue[i] = q.get();
+            queue[i] = q.queue[i];
         }
     }
 
@@ -49,6 +50,7 @@ public class Queue {
 
     /**
      * Reads the very first added element and returns it
+     *
      * @return the returned item is from the queue, it will not be possible to read it again
      */
     public int get() {
