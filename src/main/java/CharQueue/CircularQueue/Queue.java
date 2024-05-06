@@ -5,11 +5,13 @@ import CharQueue.CharQueue;
 import java.util.NoSuchElementException;
 
 public class Queue implements CharQueue {
+    public final int size;
     private final char[] queue;
     private int putLocation, getLocation;
 
     // Создает очередь с заданным размером
     public Queue(int size) {
+        this.size = size;
         queue = new char[size + 1];
         putLocation = getLocation = 0;
     }
