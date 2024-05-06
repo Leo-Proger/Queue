@@ -1,6 +1,8 @@
+package FixedQueue.IntegerQueue;
+
 public class Main {
     public static void main(String[] args) {
-        // Example 1
+        // Пример 1
         Queue queue1 = new Queue(3);
 
         queue1.put(1);
@@ -12,7 +14,7 @@ public class Main {
         }
         System.out.println();
 
-        // Example 2
+        // Пример 2
         Queue queue2 = new Queue(3);
 
         queue2.put(4);
