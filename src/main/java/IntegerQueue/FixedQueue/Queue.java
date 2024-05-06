@@ -1,11 +1,13 @@
-package FixedQueue.CharQueue;
+package IntegerQueue.FixedQueue;
+
+import IntegerQueue.IntegerQueue;
 
 import java.util.NoSuchElementException;
 
-public class Queue implements CharQueue {
+public class Queue implements IntegerQueue {
     public final int size;
 
-    private final char[] queue;
+    private final int[] queue;
     private int getLocation = 0; // Индекс элемента очереди, который будет возвращен при чтении
     private int putLocation = 0; // Индекс элемента очереди, по которому будет вставлен следующий элемент
 
@@ -15,13 +17,13 @@ public class Queue implements CharQueue {
             throw new IllegalArgumentException("Размер очереди не может быть отрицательным");
         }
         this.size = size;
-        this.queue = new char[size];
+        this.queue = new int[size];
     }
 
     // Создается копия другой очереди
     public Queue(Queue q) {
         this.size = q.size;
-        this.queue = new char[size];
+        this.queue = new int[size];
         this.getLocation = q.getLocation;
         this.putLocation = q.putLocation;
 
@@ -31,7 +33,7 @@ public class Queue implements CharQueue {
     }
 
     // Вставка элемента в конец очереди
-    public void put(char el) {
+    public void put(int el) {
         if (putLocation >= size) {
             throw new ArrayIndexOutOfBoundsException("Очередь переполнена");
         }
@@ -39,7 +41,7 @@ public class Queue implements CharQueue {
     }
 
     // Прочитать элемент очереди
-    public char get() {
+    public int get() {
         if (getLocation >= size) {
             throw new NoSuchElementException("В очереди больше нет элементов");
         }

@@ -1,4 +1,4 @@
-package FixedQueue.IntegerQueue;
+package IntegerQueue;
 
 public interface IntegerQueue {
     // Добавление числа в очередь

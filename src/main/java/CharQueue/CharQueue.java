@@ -1,4 +1,4 @@
-package FixedQueue.CharQueue;
+package CharQueue;
 
 public interface CharQueue {
     // Добавление символа в очередь
