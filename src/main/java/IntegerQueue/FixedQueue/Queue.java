@@ -27,17 +27,15 @@ public class Queue implements IntegerQueue {
         this.getLocation = q.getLocation;
         this.putLocation = q.putLocation;
 
-        for (int i = 0; i < q.size; i++) {
-            queue[i] = q.queue[i];
-        }
+        System.arraycopy(q.queue, 0, queue, 0, q.size);
     }
 
     // Вставка элемента в конец очереди
-    public void put(int el) {
+    public void put(int value) {
         if (putLocation >= size) {
             throw new ArrayIndexOutOfBoundsException("Очередь переполнена");
         }
-        queue[putLocation++] = el;
+        queue[putLocation++] = value;
     }
 
     // Прочитать элемент очереди
