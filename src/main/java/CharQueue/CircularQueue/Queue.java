@@ -6,7 +6,8 @@ import java.util.NoSuchElementException;
 
 public class Queue implements CharQueue {
     public final int size;
-    private final char[] queue;
+
+    private char[] queue;
     private int putLocation, getLocation;
 
     // Создает очередь с заданным размером
@@ -35,5 +36,9 @@ public class Queue implements CharQueue {
         char ch = queue[getLocation++];
         if (getLocation == queue.length) getLocation = 0; // Закольцевать
         return ch;
+    }
+
+    public void reset() {
+        queue = new char[size];
     }
 }

@@ -6,4 +6,7 @@ public interface CharQueue {
 
     // Извлечь символ из очереди
     char get();
+
+    // Сбросить очередь
+    void reset();
 }

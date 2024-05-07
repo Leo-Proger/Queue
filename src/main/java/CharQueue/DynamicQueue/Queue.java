@@ -5,10 +5,13 @@ import CharQueue.CharQueue;
 import java.util.NoSuchElementException;
 
 public class Queue implements CharQueue {
+    public final int size;
+
     private char[] queue;
     private int putLocation, getLocation;
 
     public Queue(int size) {
+        this.size = size;
         queue = new char[size];
         putLocation = getLocation = 0;
     }
@@ -29,5 +32,9 @@ public class Queue implements CharQueue {
             throw new NoSuchElementException("Очередь пуста");
         }
         return queue[getLocation++];
+    }
+
+    public void reset() {
+        queue = new char[size];
     }
 }
