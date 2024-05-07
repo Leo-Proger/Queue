@@ -4,7 +4,9 @@ public class DynamicQueue implements Queue {
     public final int size;
 
     private int[] queue;
-    private int putLocation, getLocation;
+
+    private int putLocation = 0; // Индекс элемента очереди, по которому будет вставлен следующий элемент
+    private int getLocation = 0; // Индекс элемента очереди, который будет возвращен при чтении
 
     public DynamicQueue(int size) {
         if (size < 0) {
@@ -12,7 +14,6 @@ public class DynamicQueue implements Queue {
         }
         this.size = size;
         queue = new int[size];
-        putLocation = getLocation = 0;
     }
 
     public DynamicQueue(DynamicQueue q) {
@@ -45,5 +46,17 @@ public class DynamicQueue implements Queue {
     public void reset() {
         queue = new int[size];
         putLocation = getLocation = 0;
+    }
+
+    public int[] getQueue() {
+        return queue;
+    }
+
+    public int getPutLocation() {
+        return putLocation;
+    }
+
+    public int getGetLocation() {
+        return getLocation;
     }
 }

@@ -28,6 +28,24 @@ public class FixedQueue implements Queue {
         System.arraycopy(q.queue, 0, queue, 0, q.putLocation);
     }
 
+    public CircularQueue toCircularQueue(FixedQueue q) {
+        CircularQueue circularQueue = new CircularQueue(size);
+
+        for (int i = 0; i < q.size; i++) {
+            circularQueue.put(q.get());
+        }
+        return circularQueue;
+    }
+
+    public DynamicQueue toDynamicQueue(FixedQueue q) {
+        DynamicQueue dynamicQueue = new DynamicQueue(size);
+
+        for (int i = 0; i < q.getCount(); i++) {
+            dynamicQueue.put(q.queue[q.getLocation + i]);
+        }
+        return dynamicQueue;
+    }
+
     // Вставка элемента в конец очереди
     public void put(int value) {
         if (count >= size || putLocation == size) {

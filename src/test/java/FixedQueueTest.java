@@ -98,4 +98,32 @@ public class FixedQueueTest {
         assertEquals(3, copyQueue.getPutLocation());
         assertEquals(0, copyQueue.getGetLocation());
     }
+
+    @Test
+    public void testToCircularQueue() {
+        FixedQueue fixedQueue = new FixedQueue(5);
+        for (int i = 0; i < 5; i++) {
+            fixedQueue.put(i);
+        }
+
+        CircularQueue circularQueue = fixedQueue.toCircularQueue(fixedQueue);
+
+        for (int i = 0; i < 5; i++) {
+            assertEquals(i, circularQueue.get());
+        }
+    }
+
+    @Test
+    public void testToDynamicQueue() {
+        FixedQueue fixedQueue = new FixedQueue(5);
+        for (int i = 0; i < 5; i++) {
+            fixedQueue.put(i);
+        }
+
+        DynamicQueue dynamicQueue = fixedQueue.toDynamicQueue(fixedQueue);
+
+        for (int i = 0; i < 5; i++) {
+            assertEquals(i, dynamicQueue.get());
+        }
+    }
 }
