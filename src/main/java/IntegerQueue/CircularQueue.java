@@ -4,11 +4,15 @@ import java.util.NoSuchElementException;
 
 public class CircularQueue implements IntegerQueue {
     public final int size;
+
     private int[] queue;
     private int putLocation, getLocation;
 
     // Создает очередь с заданным размером
     public CircularQueue(int size) {
+        if (size < 0) {
+            throw new IllegalArgumentException("Размер очереди не может быть отрицательным");
+        }
         this.size = size;
         queue = new int[size + 1];
         putLocation = getLocation = 0;
@@ -30,12 +34,26 @@ public class CircularQueue implements IntegerQueue {
         if (getLocation == putLocation) {
             throw new NoSuchElementException("Очередь пуста");
         }
-        int value = queue[getLocation++];
+        int value = queue[getLocation];
+        queue[getLocation++] = 0;
         if (getLocation == queue.length) getLocation = 0; // Закольцевать
         return value;
     }
 
     public void reset() {
-        queue = new int[size];
+        queue = new int[size + 1];
+        getLocation = putLocation = 0;
+    }
+
+    public int[] getQueue() {
+        return queue;
+    }
+
+    public int getPutLocation() {
+        return putLocation;
+    }
+
+    public int getGetLocation() {
+        return getLocation;
     }
 }
