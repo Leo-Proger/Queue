@@ -31,28 +31,22 @@ public class FixedQueue implements IntegerQueue {
 
     // Вставка элемента в конец очереди
     public void put(int value) {
-        if (count >= size) {
+        if (count >= size || putLocation == size) {
             throw new ArrayIndexOutOfBoundsException("Очередь переполнена");
         }
         queue[putLocation++] = value;
-        if (putLocation == size) {
-            putLocation = 0;
-        }
         count++;
     }
 
     // Прочитать элемент очереди
     public int get() {
-        if (count == 0) {
-            throw new NoSuchElementException("В очереди больше нет элементов");
+        if (count == 0 || getLocation == size) {
+            throw new NoSuchElementException("В очереди нет элементов");
         }
-        int result = queue[getLocation];
+        int value = queue[getLocation];
         queue[getLocation++] = 0;
-        if (getLocation == size) {
-            getLocation = 0;
-        }
         count--;
-        return result;
+        return value;
     }
 
     public void reset() {

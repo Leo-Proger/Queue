@@ -58,7 +58,16 @@ public class FixedQueueTest {
         assertEquals(3, queue.getGetLocation());
         assertEquals(0, queue.getCount());
 
+
+        queue.put(4);
+        queue.put(5);
+
+        assertEquals(4, queue.get());
+        assertEquals(5, queue.get());
+
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> queue.put(6));
         Assertions.assertThrows(NoSuchElementException.class, () -> queue.get());
+
     }
 
     @Test
