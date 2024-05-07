@@ -1,16 +1,14 @@
-package IntegerQueue.DynamicQueue;
-
-import IntegerQueue.IntegerQueue;
+package IntegerQueue;
 
 import java.util.NoSuchElementException;
 
-public class Queue implements IntegerQueue {
+public class DynamicQueue implements IntegerQueue {
     public final int size;
 
     private int[] queue;
     private int putLocation, getLocation;
 
-    public Queue(int size) {
+    public DynamicQueue(int size) {
         this.size = size;
         queue = new int[size];
         putLocation = getLocation = 0;

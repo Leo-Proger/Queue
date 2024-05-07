@@ -1,16 +1,14 @@
-package IntegerQueue.CircularQueue;
-
-import IntegerQueue.IntegerQueue;
+package IntegerQueue;
 
 import java.util.NoSuchElementException;
 
-public class Queue implements IntegerQueue {
+public class CircularQueue implements IntegerQueue {
     public final int size;
     private int[] queue;
     private int putLocation, getLocation;
 
     // Создает очередь с заданным размером
-    public Queue(int size) {
+    public CircularQueue(int size) {
         this.size = size;
         queue = new int[size + 1];
         putLocation = getLocation = 0;
