@@ -1,8 +1,6 @@
-package IntegerQueue;
-
 import java.util.NoSuchElementException;
 
-public class DynamicQueue implements IntegerQueue {
+public class DynamicQueue implements Queue {
     public final int size;
 
     private int[] queue;

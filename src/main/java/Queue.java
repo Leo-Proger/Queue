@@ -1,6 +1,4 @@
-package IntegerQueue;
-
-public interface IntegerQueue {
+public interface Queue {
     // Добавление числа в очередь
     void put(int ch);
 

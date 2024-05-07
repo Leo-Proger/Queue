@@ -1,8 +1,6 @@
-package IntegerQueue;
-
 import java.util.NoSuchElementException;
 
-public class FixedQueue implements IntegerQueue {
+public class FixedQueue implements Queue {
     public final int size;
 
     private int[] queue;

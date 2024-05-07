@@ -1,8 +1,6 @@
-package IntegerQueue;
-
 import java.util.NoSuchElementException;
 
-public class CircularQueue implements IntegerQueue {
+public class CircularQueue implements Queue {
     public final int size;
 
     private int[] queue;
