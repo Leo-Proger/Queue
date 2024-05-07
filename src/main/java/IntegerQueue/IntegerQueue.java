@@ -6,4 +6,7 @@ public interface IntegerQueue {
 
     // Извлечь число из очереди
     int get();
+
+    // Сбросить очередь
+    void reset();
 }

@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 public class Queue implements IntegerQueue {
     public final int size;
-    private final int[] queue;
+    private int[] queue;
     private int putLocation, getLocation;
 
     // Создает очередь с заданным размером
@@ -35,5 +35,9 @@ public class Queue implements IntegerQueue {
         int value = queue[getLocation++];
         if (getLocation == queue.length) getLocation = 0; // Закольцевать
         return value;
+    }
+
+    public void reset() {
+        queue = new int[size];
     }
 }

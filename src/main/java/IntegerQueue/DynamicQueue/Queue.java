@@ -5,10 +5,13 @@ import IntegerQueue.IntegerQueue;
 import java.util.NoSuchElementException;
 
 public class Queue implements IntegerQueue {
+    public final int size;
+
     private int[] queue;
     private int putLocation, getLocation;
 
     public Queue(int size) {
+        this.size = size;
         queue = new int[size];
         putLocation = getLocation = 0;
     }
@@ -29,5 +32,9 @@ public class Queue implements IntegerQueue {
             throw new NoSuchElementException("Очередь пуста");
         }
         return queue[getLocation++];
+    }
+
+    public void reset() {
+        queue = new int[size];
     }
 }

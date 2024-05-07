@@ -26,5 +26,19 @@ public class Main {
         for (int i = 0; i < queue3.size; i++) {
             System.out.println(queue3.get());
         }
+        System.out.println();
+
+        // Пример 3
+        Queue queue4 = new Queue(3);
+
+        queue4.put(8);
+        queue4.put(9);
+        queue4.put(10);
+
+        queue4.reset();
+
+        for (int i = 0; i < queue4.size; i++) {
+            System.out.println(queue4.get()); // Выведет три нуля
+        }
     }
 }

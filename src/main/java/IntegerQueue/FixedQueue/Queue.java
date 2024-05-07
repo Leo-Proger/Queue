@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 public class Queue implements IntegerQueue {
     public final int size;
 
-    private final int[] queue;
+    private int[] queue;
     private int getLocation = 0; // Индекс элемента очереди, который будет возвращен при чтении
     private int putLocation = 0; // Индекс элемента очереди, по которому будет вставлен следующий элемент
 
@@ -44,5 +44,9 @@ public class Queue implements IntegerQueue {
             throw new NoSuchElementException("В очереди больше нет элементов");
         }
         return queue[getLocation++];
+    }
+
+    public void reset() {
+        queue = new int[size];
     }
 }
