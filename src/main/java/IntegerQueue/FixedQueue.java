@@ -25,6 +25,7 @@ public class FixedQueue implements IntegerQueue {
         this.queue = new int[size];
         this.getLocation = q.getLocation;
         this.putLocation = q.putLocation;
+        this.count = q.count;
 
         System.arraycopy(q.queue, 0, queue, 0, q.putLocation);
     }

@@ -9,9 +9,21 @@ public class DynamicQueue implements IntegerQueue {
     private int putLocation, getLocation;
 
     public DynamicQueue(int size) {
+        if (size < 0) {
+            throw new IllegalArgumentException("Размер очереди не может быть отрицательным");
+        }
         this.size = size;
         queue = new int[size];
         putLocation = getLocation = 0;
+    }
+
+    public DynamicQueue(DynamicQueue q) {
+        this.size = q.size;
+        this.queue = new int[size];
+        this.getLocation = q.getLocation;
+        this.putLocation = q.putLocation;
+
+        System.arraycopy(q.queue, 0, queue, 0, q.putLocation);
     }
 
     public void put(int value) {
@@ -34,5 +46,6 @@ public class DynamicQueue implements IntegerQueue {
 
     public void reset() {
         queue = new int[size];
+        putLocation = getLocation = 0;
     }
 }
